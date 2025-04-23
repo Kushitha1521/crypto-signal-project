@@ -33,7 +33,7 @@ function App() {
   const fetchSignals = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:8000/signals");
+      const res = await fetch("https://flask-hello-world-lac-pi-81.vercel.app/signals");
       const data = await res.json();
       setSignals(data);
     } catch (error) {
