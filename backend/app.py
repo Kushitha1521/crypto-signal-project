@@ -1,19 +1,12 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+from flask import Flask, jsonify
+from flask_cors import CORS
 import requests
 import pandas as pd
 import talib
 from datetime import datetime
 
-app = FastAPI()
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+app = Flask(__name__)
+CORS(app)
 
 BINANCE_ENDPOINT = "https://api.binance.com/api/v3/klines"
 
@@ -23,14 +16,14 @@ COINS = [
     "ADAUSDT", "SOLUSDT", "DOGEUSDT", "MATICUSDT", "DOTUSDT"
 ]
 
-@app.get("/signals")
+@app.route("/signals", methods=["GET"])
 def get_signals():
     signals = {}
-    
+
     for coin in COINS:
         params = {
             "symbol": coin,
-            "interval": "15m",  # 15 minutes interval
+            "interval": "15m",
             "limit": 100
         }
         res = requests.get(BINANCE_ENDPOINT, params=params)
@@ -60,7 +53,7 @@ def get_signals():
             action = "Sell"
 
         signals[coin] = {
-            "time": latest["timestamp"],
+            "time": latest["timestamp"].isoformat(),
             "price": latest["close"],
             "signal": action,
             "ema20": latest["ema20"],
@@ -70,4 +63,7 @@ def get_signals():
             "macd_signal": latest["macd_signal"]
         }
 
-    return signals
+    return jsonify(signals)
+
+if __name__ == "__main__":
+    app.run(debug=True)
