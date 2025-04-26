@@ -33,7 +33,7 @@ function App() {
   const fetchSignals = async () => {
     try {
       setLoading(true);
-      const res = await fetch("https://cryptosignal-production.up.railway.app/signals");
+      const res = await fetch("https://crypto-signal-project-production.up.railway.app/signals");
       const data = await res.json();
       setSignals(data);
     } catch (error) {
