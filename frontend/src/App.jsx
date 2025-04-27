@@ -62,8 +62,10 @@ function App() {
   };
 
   return (
+    
     <html>
       <head>
+       
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9068417913167381"
      crossorigin="anonymous"></script>
       </head>
