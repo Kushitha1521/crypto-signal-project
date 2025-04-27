@@ -62,6 +62,7 @@ function App() {
   };
 
   return (
+    
     <Box
       sx={{
         minHeight: "100vh",
@@ -70,6 +71,7 @@ function App() {
         px: 2
       }}
     >
+      
       <Container maxWidth="xl">
         <Typography
           variant="h3"
