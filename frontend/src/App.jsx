@@ -24,6 +24,9 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
+
 
 function App() {
   const [signals, setSignals] = useState(null);
@@ -33,7 +36,8 @@ function App() {
   const fetchSignals = async () => {
     try {
       setLoading(true);
-      const res = await fetch("https://crypto-signal-project-production.up.railway.app/signals");
+      
+      const res = await fetch("http://127.0.0.1:7860/signals");
       const data = await res.json();
       setSignals(data);
     } catch (error) {
@@ -63,22 +67,20 @@ function App() {
 
   return (
     
-    <html>
-      <head>
-       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9068417913167381"
-     crossorigin="anonymous"></script>
-      </head>
-    <Box
-      sx={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
-        py: 4,
-        px: 2
-      }}
+    <div >
+      
+     <div style={{ backgroundColor: "#1A1F25", color: "white", minHeight: "100vh", margin: -8, padding: 0 }}  >
+      <Navbar/>
+    <Box sx={{mt:4,}}
+      // sx={{
+      //   minHeight: "100vh",
+      //   background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
+      //   py: 4,
+      //   px: 2
+      // }}
     >
       
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" >
         <Typography
           variant="h3"
           component="h1"
@@ -103,7 +105,7 @@ function App() {
             <CircularProgress color="primary" />
           </Box>
         ) : (
-          <Grid container spacing={3}>
+          <Grid container spacing={3} sx={{justifyContent: "center",}}>
             <Grid item xs={12}>
               <Card
                 elevation={8}
@@ -208,14 +210,16 @@ function App() {
           </Grid>
         )}
 
-        <Box component="footer" sx={{ mt: 6, textAlign: "center", color: "rgba(255,255,255,0.5)" }}>
+        {/* <Box component="footer" sx={{ mt: 6, textAlign: "center", color: "rgba(255,255,255,0.5)" }}>
           <Typography variant="body2">
             Built with ❤️ by Kushitha | Material UI Crypto Dashboard
           </Typography>
-        </Box>
+        </Box> */}
       </Container>
+      <Footer/>
     </Box>
-    </html>
+    </div>
+   </div>
   );
 }
 
