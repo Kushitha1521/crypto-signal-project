@@ -37,7 +37,7 @@ function App() {
     try {
       setLoading(true);
       
-      const res = await fetch("http://127.0.0.1:7860/signals");
+      const res = await fetch("https://huggingface.co/spaces/kushitha/crypto/signals");
       const data = await res.json();
       setSignals(data);
     } catch (error) {
