@@ -37,7 +37,7 @@ function App() {
     try {
       setLoading(true);
       
-      const res = await fetch("https://huggingface.co/spaces/kushitha/crypto/signals");
+      const res = await fetch("https://crypto-signal-project-2w75.vercel.app/signals");
       const data = await res.json();
       setSignals(data);
     } catch (error) {
