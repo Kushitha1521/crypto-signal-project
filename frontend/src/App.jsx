@@ -37,7 +37,7 @@ function App() {
     try {
       setLoading(true);
       
-      const res = await fetch("https://crypto-signal-project-2w75.vercel.app/signals");
+      const res = await fetch("https://cryptosignal-d8f8g7epezc6h2bv.canadacentral-01.azurewebsites.net/signals");
       const data = await res.json();
       setSignals(data);
     } catch (error) {
