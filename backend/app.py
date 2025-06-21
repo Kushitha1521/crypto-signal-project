@@ -80,7 +80,8 @@ def get_signals():
         except Exception as e:
             signals[coin] = {"error": str(e)}
 
-    return jsonify(signals)
 
+
+    return jsonify(signals)
 # if __name__ == "__main__":
 #     app.run(host="0.0.0.0", port=7860, debug=True)
