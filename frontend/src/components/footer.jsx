@@ -3,6 +3,7 @@ import { Box, Typography, IconButton, Stack } from "@mui/material";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedinIcon from "@mui/icons-material/LinkedIn"
 
 const Footer = () => {
   return (
@@ -27,9 +28,9 @@ const Footer = () => {
 
       <Stack direction="row" justifyContent="center" spacing={2} sx={{ mt: 2 }}>
         <IconButton href="#" sx={{ color: "#00ffaa" }}>
-          <TelegramIcon />
+          <LinkedinIcon />
         </IconButton>
-        <IconButton href="#" sx={{ color: "#00ffaa" }}>
+        <IconButton href="https://github.com/Kushitha1521" sx={{ color: "#00ffaa" }}>
           <GitHubIcon />
         </IconButton>
         <IconButton href="#" sx={{ color: "#00ffaa" }}>
